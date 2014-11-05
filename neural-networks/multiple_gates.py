@@ -13,12 +13,14 @@ def forward_circuit(x, y, z):
     q = forward_add_gate(x, y)
     f = forward_multiply_gate(q, z)
     print(f)
-    derivative_f_wrt_z = q
-    derivative_f_wrt_q = z
+    derivative_f_wrt_z = q  # 3
+    derivative_f_wrt_q = z  # -4
     derivative_q_wrt_x = 1.0
     derivative_q_wrt_y = 1.0
     derivative_f_wrt_x = derivative_q_wrt_x * derivative_f_wrt_q
     derivative_f_wrt_y = derivative_q_wrt_y * derivative_f_wrt_q
+    print(derivative_q_wrt_x, derivative_f_wrt_q)
+    print(derivative_q_wrt_y, derivative_f_wrt_q)
     gradient_f_wrt_xyz = [derivative_f_wrt_x,
                           derivative_f_wrt_y,
                           derivative_f_wrt_z]
