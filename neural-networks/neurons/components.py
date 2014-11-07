@@ -3,6 +3,6 @@
 
 class Unit(object):
 
-    def __init__(self, value, grad):
+    def __init__(self, value, gradient):
         self.value = value
-        self.grad = grad
+        self.gradient = gradient
