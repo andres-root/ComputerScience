@@ -1,10 +1,13 @@
 #!/usr/bin/python3
 
-# Python Modules
 import math
 
-# App Modules
-from .components import Unit
+
+class Unit(object):
+
+    def __init__(self, value, gradient):
+        self.value = value
+        self.gradient = gradient
 
 
 class MultiplyGate(object):
