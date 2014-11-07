@@ -58,8 +58,8 @@ class SigmoidGate(object):
 
     def backward(self):
         """
-        Computes the gradient with respect to its single input
-        using sigmoid function derivative.
+        Computes the local derivative with respect to its input,
+        then multiplies on the gradient from the unit above
         """
         sig = self.sigmoid(self.u0.value)
         self.u0.gradient += (sig * (1 - sig)) * self.utop.gradient
