@@ -59,11 +59,3 @@ class SigmoidGate(object):
     def backward(self):
         sig = self.sigmoid(self.u0.value)
         self.u0.gradient += (sig * (1 - sig)) * self.utop.gradient
-
-
-
-
-
-
-
-
