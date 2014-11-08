@@ -52,7 +52,7 @@ class SigmoidGate(object):
     def sigmoid(self, x):
         """
         Computes the sigmoid function wrt x.
-        http://en.wikipedia.org/wiki/Sigmoid_function
+        Reference: http://en.wikipedia.org/wiki/Sigmoid_function
         """
         self.sigmoid = 1 / (1 + math.exp(-x))
 
