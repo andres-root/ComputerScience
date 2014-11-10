@@ -66,3 +66,18 @@ class SigmoidGate(object):
         """
         sig = self.sigmoid(self.u0.value)
         self.u0.gradient += (sig * (1 - sig)) * self.utop.gradient
+
+
+class ForwardNeuron(object):
+
+    def __init__(self, *args, **kwargs):
+        self.values = kwargs
+        self.ax =
+        self.by =
+
+
+a = Unit(1.0, 0.0)
+b = Unit(2.0, 0.0)
+c = Unit(-3.0, 0.0)
+x = Unit(-1.0, 0.0)
+y = Unit(3.0, 0.0)
