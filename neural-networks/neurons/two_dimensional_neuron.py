@@ -100,4 +100,7 @@ if __name__ == '__main__':
     mulg1 = MultiplyGate()
     addg0 = AddGate()
     addg1 = AddGate()
-    sg0 = SigmoidGate()
+    sigg0 = SigmoidGate()
+    neuron = ForwardNeuron(mulg0, mulg1, addg0, addg1, sigg0)
+    neuron.forward(a, b, c, x, y)
+    print(neuron)
