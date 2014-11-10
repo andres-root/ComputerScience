@@ -103,4 +103,5 @@ if __name__ == '__main__':
     sigg0 = SigmoidGate()
     neuron = ForwardNeuron(mulg0, mulg1, addg0, addg1, sigg0)
     neuron.forward(a, b, c, x, y)
-    print(neuron)
+    response = 'Circuit output: {0}'.format(neuron.sig.value)
+    print(response)
