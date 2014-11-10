@@ -107,5 +107,5 @@ def ComputeForward():
     return response
 
 if __name__ == '__main__':
-    computed_sigmoid_value = (ComputeForward())
+    computed_sigmoid_value = ComputeForward()
     print(computed_sigmoid_value)
