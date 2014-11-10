@@ -90,7 +90,7 @@ class ForwardNeuron(object):
         self.sig = self.sigg0.forward(self.axpbypc)
 
 
-if __name__ == '__main__':
+def ComputeForward():
     a = Unit(1.0, 0.0)
     b = Unit(2.0, 0.0)
     c = Unit(-3.0, 0.0)
@@ -104,4 +104,8 @@ if __name__ == '__main__':
     neuron = ForwardNeuron(mulg0, mulg1, addg0, addg1, sigg0)
     neuron.forward(a, b, c, x, y)
     response = 'Circuit output: {0}'.format(neuron.sig.value)
-    print(response)
+    return response
+
+if __name__ == '__main__':
+    computed_sigmoid_value = (ComputeForward())
+    print(computed_sigmoid_value)
