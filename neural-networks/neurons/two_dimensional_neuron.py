@@ -70,14 +70,25 @@ class SigmoidGate(object):
 
 class ForwardNeuron(object):
 
-    def __init__(self, *args, **kwargs):
-        self.values = kwargs
-        self.ax =
-        self.by =
+    def __init__(self, mulg0, mulg1, addg0, addg1, sigg0):
+        self.mulg0 = mulg0
+        self.mulg1 = mulg1
+        self.addg0 = addg0
+        self.addg1 = addg1
+        self.sigg0 = sigg0
+
+    def forward(a, b, c, x, y):
+        pass
 
 
-a = Unit(1.0, 0.0)
-b = Unit(2.0, 0.0)
-c = Unit(-3.0, 0.0)
-x = Unit(-1.0, 0.0)
-y = Unit(3.0, 0.0)
+if __name__ == '__main__':
+    a = Unit(1.0, 0.0)
+    b = Unit(2.0, 0.0)
+    c = Unit(-3.0, 0.0)
+    x = Unit(-1.0, 0.0)
+    y = Unit(3.0, 0.0)
+    mulg0 = MultiplyGate()
+    mulg1 = MultiplyGate()
+    addg0 = AddGate()
+    addg1 = AddGate()
+    sg0 = SigmoidGate()
