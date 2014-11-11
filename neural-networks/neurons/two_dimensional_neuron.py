@@ -121,14 +121,6 @@ def ComputeForward():
     return response
 
 
-def ComputeBackward():
-    sg0.backward() // writes gradient into axpbypc
-    addg1.backward() // writes gradients into axpby and c
-    addg0.backward() // writes gradients into ax and by
-    mulg1.backward() // writes gradients into b and y
-    mulg0.backward()
-
-
 if __name__ == '__main__':
     computed_sigmoid_value = ComputeForward()
     print(computed_sigmoid_value)
