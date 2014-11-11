@@ -89,6 +89,20 @@ class ForwardNeuron(object):
         self.axpbypc = self.addg1.forward(self.axpby, c)
         self.sig = self.sigg0.forward(self.axpbypc)
 
+    def backward(self, a, b, c, x, y):
+        self.sig.gradient = 1.0
+        self.sigg0.backward()
+        self.addg1.backward()
+        self.addg0.backward()
+        self.mulg1.backward()
+        self.mulg0.backward()
+        step_size = 0.01
+        a.value += step_size * a.grad
+        b.value += step_size * b.grad5
+        c.value += step_size * c.grad
+        x.value += step_size * x.grad
+        y.value += step_size * y.grad
+
 
 def ComputeForward():
     a = Unit(1.0, 0.0)
@@ -105,6 +119,15 @@ def ComputeForward():
     neuron.forward(a, b, c, x, y)
     response = 'Circuit output: {0}'.format(neuron.sig.value)
     return response
+
+
+def ComputeBackward():
+    sg0.backward() // writes gradient into axpbypc
+    addg1.backward() // writes gradients into axpby and c
+    addg0.backward() // writes gradients into ax and by
+    mulg1.backward() // writes gradients into b and y
+    mulg0.backward()
+
 
 if __name__ == '__main__':
     computed_sigmoid_value = ComputeForward()
