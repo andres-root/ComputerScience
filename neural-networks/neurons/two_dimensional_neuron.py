@@ -12,12 +12,14 @@ class Unit(object):
 
 class MultiplyGate(object):
 
-    def __init__(self, u0, u1):
-        self.u0 = u0
-        self.u1 = u1
+    def __init__(self):
+        self.u0 = 0
+        self.u1 = 0
         self.utop = 0
 
-    def forward(self):
+    def forward(self, u0, u1):
+        self.u0 = u0
+        self.u1 = u1
         self.utop = Unit(self.u0.value * self.u1.gradient, 0.0)
         return self.utop
 
@@ -28,12 +30,14 @@ class MultiplyGate(object):
 
 class AddGate(object):
 
-    def __init__(self, u0, u1):
-        self.u0 = u0
-        self.u1 = u1
+    def __init__(self):
+        self.u0 = 0
+        self.u1 = 0
         self.utop = 0
 
-    def forward(self):
+    def forward(self, u0, u1):
+        self.u0 = u0
+        self.u1 = u1
         self.utop = Unit(self.u0.value + self.u1.gradient, 0.0)
         return self.utop
 
