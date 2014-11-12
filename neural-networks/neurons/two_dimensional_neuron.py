@@ -81,15 +81,26 @@ class ForwardNeuron(object):
         self.axpby = 0
         self.axpbypc = 0
         self.sig = 0
+        self.a = 0
+        self.b = 0
+        self.c = 0
+        self.x = 0
+        self.y = 0
 
     def forward(self, a, b, c, x, y):
+        self.a = a
+        self.b = b
+        self.c = c
+        self.x = x
+        self.y = y
         self.ax = self.mulg0.forward(a, x)
         self.by = self.mulg1.forward(b, y)
         self.axpby = self.addg0.forward(self.ax, self.by)
         self.axpbypc = self.addg1.forward(self.axpby, c)
         self.sig = self.sigg0.forward(self.axpbypc)
+        return self.sig
 
-    def backward(self, a, b, c, x, y):
+    def backward(self):
         self.sig.gradient = 1.0
         self.sigg0.backward()
         self.addg1.backward()
