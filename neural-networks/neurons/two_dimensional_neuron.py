@@ -100,19 +100,21 @@ class ForwardNeuron(object):
         self.sig = self.sigg0.forward(self.axpbypc)
         return self.sig
 
-    def backward(self):
-        self.sig.gradient = 1.0
+    def backward(self, gradient=1.0, step_size=0.01):
+        """
+        Gradient
+        """
+        self.sig.gradient = gradient
         self.sigg0.backward()
         self.addg1.backward()
         self.addg0.backward()
         self.mulg1.backward()
         self.mulg0.backward()
-        step_size = 0.01
-        a.value += step_size * a.grad
-        b.value += step_size * b.grad5
-        c.value += step_size * c.grad
-        x.value += step_size * x.grad
-        y.value += step_size * y.grad
+        self.a.value += step_size * self.a.grad
+        self.b.value += step_size * self.b.grad
+        self.c.value += step_size * self.c.grad
+        self.x.value += step_size * self.x.grad
+        self.y.value += step_size * self.y.grad
 
 
 def ComputeForward():
