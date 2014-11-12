@@ -15,7 +15,7 @@ class MultiplyGate(object):
     def forward(self, u0, u1):
         self.u0 = u0
         self.u1 = u1
-        self.utop = Unit(self.u0.value * self.u1.gradient, 0.0)
+        self.utop = Unit(self.u0.value * self.u1.value, 0.0)
         return self.utop
 
     def backward(self):
@@ -28,7 +28,7 @@ class AddGate(object):
     def forward(self, u0, u1):
         self.u0 = u0
         self.u1 = u1
-        self.utop = Unit(self.u0.value + self.u1.gradient, 0.0)
+        self.utop = Unit(self.u0.value + self.u1.value, 0.0)
         return self.utop
 
     def backward(self):
@@ -43,8 +43,7 @@ class SigmoidGate(object):
         Computes the sigmoid function wrt x.
         Reference: http://en.wikipedia.org/wiki/Sigmoid_function
         """
-        self.sigmoid = 1 / (1 + math.exp(-x))
-        return self.sigmoid
+        return (1 / (1 + math.exp(-x)))
 
     def forward(self, u0):
         self.u0 = u0
@@ -111,10 +110,10 @@ if __name__ == '__main__':
     sigg0 = SigmoidGate()
     neuron = ForwardNeuron(mulg0, mulg1, addg0, addg1, sigg0)
     neuron.forward(a, b, c, x, y)
-    forward = 'Circuit output: {0}'.format(neuron.sig.value)
+    forward = 'Circuit output: {0}\n'.format(neuron.sig.value)
     print(forward)
-    # gradient = 1.0
-    # step_size = 0.01
-    # neuron.backward(gradient, step_size)
-    # backward = 'Circuit output after backprop: {0}'.format(neuron.sig.value)
-    # print(backward)
+    gradient = 1.0
+    step_size = 0.01
+    neuron.backward(gradient, step_size)
+    backward = 'Circuit output after backprop: {0}\n'.format(neuron.sig.value)
+    print(backward)
