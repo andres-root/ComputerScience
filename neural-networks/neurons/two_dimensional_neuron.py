@@ -86,8 +86,6 @@ class ForwardNeuron(object):
         self.c = 0
         self.x = 0
         self.y = 0
-        self.axpby = 0
-        self.axpbypc = 0
 
     def forward(self, a, b, c, x, y):
         self.a = a
@@ -97,9 +95,9 @@ class ForwardNeuron(object):
         self.y = y
         ax = self.mulg0.forward(a, x)
         by = self.mulg1.forward(b, y)
-        self.axpby = self.addg0.forward(ax, by)
-        self.axpbypc = self.addg1.forward(self.axpby, c)
-        self.sig = self.sigg0.forward(self.axpbypc)
+        axpby = self.addg0.forward(ax, by)
+        axpbypc = self.addg1.forward(axpby, c)
+        self.sig = self.sigg0.forward(axpbypc)
         return self.sig
 
     def backward(self, gradient=1.0, step_size=0.01):
