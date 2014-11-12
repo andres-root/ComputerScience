@@ -48,8 +48,8 @@ class AddGate(object):
 
 class SigmoidGate(object):
 
-    def __init__(self, u0):
-        self.u0 = u0
+    def __init__(self):
+        self.u0 = 0
         self.utop = 0
         self.sigmoid = 0
 
@@ -60,7 +60,7 @@ class SigmoidGate(object):
         """
         self.sigmoid = 1 / (1 + math.exp(-x))
 
-    def forward(self):
+    def forward(self, u0):
         self.utop = Unit(self.sigmoid(self.u0.value), 0.0)
 
     def backward(self):
