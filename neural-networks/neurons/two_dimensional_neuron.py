@@ -90,11 +90,11 @@ class ForwardNeuron(object):
         self.addg0.backward()
         self.mulg1.backward()
         self.mulg0.backward()
-        self.a.value += step_size * self.a.grad
-        self.b.value += step_size * self.b.grad
-        self.c.value += step_size * self.c.grad
-        self.x.value += step_size * self.x.grad
-        self.y.value += step_size * self.y.grad
+        self.a.value += step_size * self.a.gradient
+        self.b.value += step_size * self.b.gradient
+        self.c.value += step_size * self.c.gradient
+        self.x.value += step_size * self.x.gradient
+        self.y.value += step_size * self.y.gradient
 
 
 if __name__ == '__main__':
