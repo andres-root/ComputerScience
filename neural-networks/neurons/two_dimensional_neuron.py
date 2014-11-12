@@ -95,6 +95,7 @@ class ForwardNeuron(object):
         self.c.value += step_size * self.c.gradient
         self.x.value += step_size * self.x.gradient
         self.y.value += step_size * self.y.gradient
+        self.forward(self.a, self.b, self.c, self.x, self.y)
 
 
 if __name__ == '__main__':
