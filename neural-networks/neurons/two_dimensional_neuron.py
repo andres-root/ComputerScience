@@ -44,6 +44,7 @@ class SigmoidGate(object):
         Reference: http://en.wikipedia.org/wiki/Sigmoid_function
         """
         self.sigmoid = 1 / (1 + math.exp(-x))
+        return self.sigmoid
 
     def forward(self, u0):
         self.u0 = u0
@@ -110,8 +111,8 @@ if __name__ == '__main__':
     sigg0 = SigmoidGate()
     neuron = ForwardNeuron(mulg0, mulg1, addg0, addg1, sigg0)
     neuron.forward(a, b, c, x, y)
-    # forward = 'Circuit output: {0}'.format(neuron.sig.value)
-    # print(forward)
+    forward = 'Circuit output: {0}'.format(neuron.sig.value)
+    print(forward)
     # gradient = 1.0
     # step_size = 0.01
     # neuron.backward(gradient, step_size)
