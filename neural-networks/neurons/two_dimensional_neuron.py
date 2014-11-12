@@ -12,11 +12,6 @@ class Unit(object):
 
 class MultiplyGate(object):
 
-    def __init__(self):
-        self.u0 = 0
-        self.u1 = 0
-        self.utop = 0
-
     def forward(self, u0, u1):
         self.u0 = u0
         self.u1 = u1
@@ -29,11 +24,6 @@ class MultiplyGate(object):
 
 
 class AddGate(object):
-
-    def __init__(self):
-        self.u0 = 0
-        self.u1 = 0
-        self.utop = 0
 
     def forward(self, u0, u1):
         self.u0 = u0
@@ -48,11 +38,6 @@ class AddGate(object):
 
 class SigmoidGate(object):
 
-    def __init__(self):
-        self.u0 = 0
-        self.utop = 0
-        self.sigmoid = 0
-
     def sigmoid(self, x):
         """
         Computes the sigmoid function wrt x.
@@ -61,7 +46,9 @@ class SigmoidGate(object):
         self.sigmoid = 1 / (1 + math.exp(-x))
 
     def forward(self, u0):
+        self.u0 = u0
         self.utop = Unit(self.sigmoid(self.u0.value), 0.0)
+        return self.utop
 
     def backward(self):
         """
@@ -80,12 +67,6 @@ class ForwardNeuron(object):
         self.addg0 = addg0
         self.addg1 = addg1
         self.sigg0 = sigg0
-        self.sig = 0
-        self.a = 0
-        self.b = 0
-        self.c = 0
-        self.x = 0
-        self.y = 0
 
     def forward(self, a, b, c, x, y):
         self.a = a
@@ -98,7 +79,6 @@ class ForwardNeuron(object):
         axpby = self.addg0.forward(ax, by)
         axpbypc = self.addg1.forward(axpby, c)
         self.sig = self.sigg0.forward(axpbypc)
-        return self.sig
 
     def backward(self, gradient=1.0, step_size=0.01):
         """
@@ -130,10 +110,10 @@ if __name__ == '__main__':
     sigg0 = SigmoidGate()
     neuron = ForwardNeuron(mulg0, mulg1, addg0, addg1, sigg0)
     neuron.forward(a, b, c, x, y)
-    forward = 'Circuit output: {0}'.format(neuron.sig.value)
-    print(forward)
-    gradient = 1.0
-    step_size = 0.01
-    neuron.backward(gradient, step_size)
-    backward = 'Circuit output after backprop: {0}'.format(neuron.sig.value)
-    print(backward)
+    # forward = 'Circuit output: {0}'.format(neuron.sig.value)
+    # print(forward)
+    # gradient = 1.0
+    # step_size = 0.01
+    # neuron.backward(gradient, step_size)
+    # backward = 'Circuit output after backprop: {0}'.format(neuron.sig.value)
+    # print(backward)
