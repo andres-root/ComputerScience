@@ -1,1 +1,2 @@
-1. Binary Classification
+Making Binary Classification
+
