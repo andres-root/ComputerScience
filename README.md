@@ -1,2 +1,2 @@
-Computer Science: Part of my studies and experiments with Algoritms and Data Science
+Computer Science: My studies and experiments with Algoritms and Data Science
 ====================================================================================
