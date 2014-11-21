@@ -12,7 +12,7 @@ class Circuit(object):
         self.addg0 = AddGate()
         self.addg1 = AddGate()
 
-    def forward(self, a, b, c, x, y):
+    def forward(self, x, y, a, b, c):
         self.ax = self.mulg0.forward(a, x)
         self.by = self.mulg1.forward(b, y)
         self.axpby = self.addg0.forward(self.ax, self.by)
@@ -38,4 +38,4 @@ class Svm(object):
         self.circuit = Circuit()
 
     def forward(self, x, y):
-        pass
+        self.unit_out = self.circuit.forward(x, y, self.a, self.b, self.c)
