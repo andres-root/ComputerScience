@@ -20,7 +20,7 @@ class Circuit(object):
         return self.axpbypc
 
     def backward(self, gradient_top):
-        self.axpbypc.grad = gradient_top
+        self.axpbypc.gradient = gradient_top
         self.addg1.backward()
         self.addg0.backward()
         self.mulg1.backward()
@@ -42,9 +42,9 @@ class Svm(object):
         return self.unit_out
 
     def backward(self, label):
-        self.a.grad = 0.0
-        self.b.grad = 0.0
-        self.c.grad = 0.0
+        self.a.gradient = 0.0
+        self.b.gradient = 0.0
+        self.c.gradient = 0.0
         pull = 0.0
         if label == 1 and self.unit_out.value < 1:
             pull = 1
@@ -53,10 +53,16 @@ class Svm(object):
         self.circuit.backward(pull)
 
         # Making regularization
-        self.a.grad += -self.a.value
-        self.b.grad += -self.b.value
+        self.a.gradient += -self.a.value
+        self.b.gradient += -self.b.value
 
+    def lean_from(self, x, y, label):
+        self.forward(x, y)
+        self.backward(label)
+        self.parameter_update()
 
-
-
-
+    def parameter_update(self):
+        step_size = 0.01
+        self.a.value += step_size * self.a.gradient
+        self.b.value += step_size * self.b.gradient
+        self.c.value += step_size * self.c.gradient
