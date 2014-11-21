@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 
+# Python Modules
+import math
+import random
+
 # App Modules
 from .gates import Unit, AddGate, MultiplyGate
 
@@ -56,7 +60,7 @@ class Svm(object):
         self.a.gradient += -self.a.value
         self.b.gradient += -self.b.value
 
-    def lean_from(self, x, y, label):
+    def learn_from(self, x, y, label):
         self.forward(x, y)
         self.backward(label)
         self.parameter_update()
@@ -68,8 +72,7 @@ class Svm(object):
         self.c.value += step_size * self.c.gradient
 
 
-def training_accuracy(dataset):
-    svm = Svm()
+def training_accuracy(dataset, svm):
     num_correct = 0
     for i in range(len(dataset)):
         x = Unit(dataset[i]['data'][0], 0.0)
@@ -91,4 +94,31 @@ if __name__ == '__main__':
                {'data': (-0.1, -1.0), 'label': -1},
                {'data': (-1.0, 1.1), 'label': -1},
                {'data': (-1.0, 1.1), 'label': 1}]
-    return training_accuracy(dataset)
+    svm = Svm()
+    for iteration in range(400):
+        i = math.floor(random.random() * len(dataset))
+        x = Unit(dataset[i]['data'][0], 0.0)
+        y = Unit(dataset[i]['data'][1], 0.0)
+        label = dataset[i]['label']
+        svm.learn_from(x, y, label)
+
+        if iteration % 25 == 0:
+            accuracy = training_accuracy(svm)
+            msg = 'Training accuracy at iteration {0}: {1}'.format(iteration, accuracy)
+            print(msg)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
