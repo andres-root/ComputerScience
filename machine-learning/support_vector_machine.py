@@ -36,3 +36,6 @@ class Svm(object):
         self.b = Unit(-2.0, 0.0)
         self.c = Unit(-1.0, 0.0)
         self.circuit = Circuit()
+
+    def forward(self, x, y):
+        pass
