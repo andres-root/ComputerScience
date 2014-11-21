@@ -66,3 +66,12 @@ class Svm(object):
         self.a.value += step_size * self.a.gradient
         self.b.value += step_size * self.b.gradient
         self.c.value += step_size * self.c.gradient
+
+
+if __name__ == '__main__':
+    data = [(1.2, 0.7),
+            (-0.3, -0.5),
+            (3.0, 0.1),
+            (-0.1, -1.0),
+            (-1.0, 1.1),
+            (-1.0, 1.1)]
