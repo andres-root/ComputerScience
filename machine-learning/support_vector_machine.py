@@ -5,7 +5,7 @@ import math
 import random
 
 # App Modules
-from .gates import Unit, AddGate, MultiplyGate
+from gates import Unit, AddGate, MultiplyGate
 
 
 class Circuit(object):
@@ -103,7 +103,7 @@ if __name__ == '__main__':
         svm.learn_from(x, y, label)
 
         if iteration % 25 == 0:
-            accuracy = training_accuracy(svm)
+            accuracy = training_accuracy(dataset, svm)
             msg = 'Training accuracy at iteration {0}: {1}'.format(iteration, accuracy)
             print(msg)
 
