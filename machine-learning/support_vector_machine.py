@@ -40,3 +40,23 @@ class Svm(object):
     def forward(self, x, y):
         self.unit_out = self.circuit.forward(x, y, self.a, self.b, self.c)
         return self.unit_out
+
+    def backward(self, label):
+        self.a.grad = 0.0
+        self.b.grad = 0.0
+        self.c.grad = 0.0
+        pull = 0.0
+        if label == 1 and self.unit_out.value < 1:
+            pull = 1
+        elif label == -1 and self.unit_out.value > -1:
+            pull = -1
+        self.circuit.backward(pull)
+
+        # Making regularization
+        self.a.grad += -self.a.value
+        self.b.grad += -self.b.value
+
+
+
+
+
