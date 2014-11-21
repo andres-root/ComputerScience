@@ -18,3 +18,10 @@ class Circuit(object):
         self.axpby = self.addg0.forward(self.ax, self.by)
         self.axpbypc = self.addg1.forward(self.axpby, c)
         return self.axpbypc
+
+    def backward(self, gradient_top):
+        self.axpbypc.grad = gradient_top
+        self.addg1.backward()
+        self.addg0.backward()
+        self.mulg1.backward()
+        self.mulg0.backward()
