@@ -1,4 +1,4 @@
 Machine Learning Work
 =====================
-Support Vector Machine
+- Binary Classifier
 
