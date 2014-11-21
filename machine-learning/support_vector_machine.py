@@ -39,3 +39,4 @@ class Svm(object):
 
     def forward(self, x, y):
         self.unit_out = self.circuit.forward(x, y, self.a, self.b, self.c)
+        return self.unit_out
