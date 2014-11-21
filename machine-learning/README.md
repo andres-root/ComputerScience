@@ -1,2 +1,2 @@
-Making Binary Classification
+Support Vector Machine
 
