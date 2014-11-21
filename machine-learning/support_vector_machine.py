@@ -76,7 +76,12 @@ def training_accuracy(dataset):
         y = Unit(dataset[i]['data'][1], 0.0)
         true_label = dataset[i]['label']
 
+        # Cross your fingers
         predicted_label = 1 if svm.forward(x, y).value > 0 else -1
+        if predicted_label == true_label:
+            num_correct += 1
+
+    return num_correct / len(dataset)
 
 
 if __name__ == '__main__':
