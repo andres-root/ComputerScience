@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 # App Modules
-from .gates import AddGate, MultiplyGate
+from .gates import Unit, AddGate, MultiplyGate
 
 
 class Circuit(object):
@@ -25,3 +25,14 @@ class Circuit(object):
         self.addg0.backward()
         self.mulg1.backward()
         self.mulg0.backward()
+
+
+class Svm(object):
+    """Support Vector Machine
+    """
+
+    def __init__(self):
+        self.a = Unit(1.0, 0.0)
+        self.b = Unit(-2.0, 0.0)
+        self.c = Unit(-1.0, 0.0)
+        self.circuit = Circuit()
