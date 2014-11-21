@@ -68,6 +68,17 @@ class Svm(object):
         self.c.value += step_size * self.c.gradient
 
 
+def training_accuracy(dataset):
+    svm = Svm()
+    num_correct = 0
+    for i in range(len(dataset)):
+        x = Unit(dataset[i]['data'][0], 0.0)
+        y = Unit(dataset[i]['data'][1], 0.0)
+        true_label = dataset[i]['label']
+
+        # predicted_label = svm.
+
+
 if __name__ == '__main__':
     dataset = [{'data': (1.2, 0.7), 'label': 1},
                {'data': (-0.3, -0.5), 'label': -1},
@@ -75,3 +86,4 @@ if __name__ == '__main__':
                {'data': (-0.1, -1.0), 'label': -1},
                {'data': (-1.0, 1.1), 'label': -1},
                {'data': (-1.0, 1.1), 'label': 1}]
+    return training_accuracy(dataset)
