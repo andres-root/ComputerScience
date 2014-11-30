@@ -12,7 +12,7 @@ dataset = [{'data': (1.2, 0.7), 'label': 1},
            {'data': (-0.1, -1.0), 'label': -1},
            {'data': (-1.0, 1.1), 'label': -1},
            {'data': (-1.0, 1.1), 'label': 1}]
-for iter in range(1, 401):
+for iteration in range(1, 401):
     i = math.floor(random() * len(dataset))
     x = dataset[i]['data'][0]
     y = dataset[i]['data'][1]
@@ -29,4 +29,5 @@ for iter in range(1, 401):
     a += step_size * (x * pull - a)
     b += step_size * (y * pull - b)
     c += step_size * (1 * pull)
-    print(score)
+    if iteration % 25 == 0:
+        print(score)
