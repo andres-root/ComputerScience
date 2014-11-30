@@ -30,4 +30,4 @@ for iteration in range(1, 401):
     b += step_size * (y * pull - b)
     c += step_size * (1 * pull)
     if iteration % 25 == 0:
-        print(score)
+        print('Iteration {0} {1}'.format(iteration, score))
