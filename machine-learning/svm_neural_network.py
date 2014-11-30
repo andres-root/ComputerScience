@@ -12,3 +12,6 @@ dataset = [{'data': (1.2, 0.7), 'label': 1},
            {'data': (-1.0, 1.1), 'label': 1}]
 for iteration in range(0, 400):
     i = math.floor(random() * len(dataset))
+    x = dataset[i]['data'][0]
+    y = dataset[i]['data'][1]
+    label = dataset[i]['label']
