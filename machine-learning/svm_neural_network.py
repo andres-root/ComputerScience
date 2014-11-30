@@ -22,6 +22,7 @@ c3 = random() - 0.5
 a4 = random() - 0.5
 b4 = random() - 0.5
 c4 = random() - 0.5
+d4 = random() - 0.5
 
 dataset = [{'data': (1.2, 0.7), 'label': 1},
            {'data': (-0.3, -0.5), 'label': -1},
@@ -38,4 +39,6 @@ for iteration in range(0, 400):
     n1 = max(0, a1 * x + b1 * y + c1)
     n2 = max(0, a2 * x + b2 * y + c2)
     n3 = max(0, a3 * x + b3 * y + c3)
-    score = 
+    score = a4 * n1 + b4 * n2 + c4 * n3 + d4
+
+    pull = 0.0
