@@ -9,6 +9,8 @@ from gates import Unit, AddGate, MultiplyGate
 
 
 class Circuit(object):
+    """Neuron
+    """
 
     def __init__(self):
         self.mulg0 = MultiplyGate()
