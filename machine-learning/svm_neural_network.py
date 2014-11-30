@@ -3,22 +3,22 @@
 import math
 from random import random
 
-# Neuron 4 values
+# Neuron 1 values
 a1 = random() - 0.5
 b1 = random() - 0.5
 c1 = random() - 0.5
 
-# Neuron 1 values
+# Neuron 2 values
 a2 = random() - 0.5
 b2 = random() - 0.5
 c2 = random() - 0.5
 
-# Neuron 2 values
+# Neuron 3 values
 a3 = random() - 0.5
 b3 = random() - 0.5
 c3 = random() - 0.5
 
-# Neuron 3 values
+# Neuron 4 values
 a4 = random() - 0.5
 b4 = random() - 0.5
 c4 = random() - 0.5
