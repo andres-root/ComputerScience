@@ -108,13 +108,5 @@ for iteration in range(0, 400):
     b4 += step_size * db4
     c4 += step_size * dc4
     d4 += step_size * dd4
-
-
-
-
-
-
-
-
-
-
+    if iteration % 25 == 0:
+        print('Iteration {0} {1}'.format(iteration, score))
