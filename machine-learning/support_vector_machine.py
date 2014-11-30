@@ -104,5 +104,4 @@ if __name__ == '__main__':
 
         if iteration % 25 == 0:
             accuracy = training_accuracy(dataset,   svm)
-            msg = 'Iteration {0} {1}'.format(iteration, accuracy)
-            print(msg)
+            print('Iteration {0} {1}'.format(iteration, accuracy))
