@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import math
 from random import random
 
