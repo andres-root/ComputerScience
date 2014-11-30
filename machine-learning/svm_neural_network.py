@@ -60,9 +60,9 @@ for iteration in range(0, 400):
 
     # backprop the ReLU non-linearities, in place
     # i.e. just set gradients to zero if the neurons did not "fire"
-    dn3 = n3 === 0 ? 0 : dn3
-    dn2 = n2 === 0 ? 0 : dn2
-    dn1 = n1 === 0 ? 0 : dn1
+    dn3 = 0 if n3 == 0 else dn3
+    dn2 = 0 if n2 == 0 else dn2
+    dn1 = 0 if n1 == 0 else dn1
 
     # backprop to parameters of neuron 1
     da1 = x * dn1
@@ -80,9 +80,6 @@ for iteration in range(0, 400):
     dc3 = 1.0 * dn3
 
     # phew! End of backprop!
-    # note we could have also backpropped into x,y
-    # but we do not need these gradients. We only use the gradients
-    # on our parameters in the parameter update, and we discard x,y
 
     # add the pulls from the regularization, tugging all multiplicative
     # parameters (i.e. not the biases) downward, proportional to their value
