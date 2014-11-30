@@ -42,3 +42,7 @@ for iteration in range(0, 400):
     score = a4 * n1 + b4 * n2 + c4 * n3 + d4
 
     pull = 0.0
+    if label == 1 and score < 1:
+        pull = 1
+    if label == -1 and score > -1:
+        pull = -1
