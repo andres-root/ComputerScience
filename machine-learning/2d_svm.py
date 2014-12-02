@@ -13,6 +13,7 @@ def cost(X, y, w):
         print('example {0} : xi = ( {1} ) and label = {2}'.format(i, xi, yi))
         print('  score computed to be {0:.3f}'.format(score))
         print('  => cost computed to be {0:.3f}'.format(costi))
+        total_cost += costi
 
 
 if __name__ == '__main__':
