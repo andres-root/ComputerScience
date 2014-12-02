@@ -4,6 +4,7 @@
 def cost(X, y, w, alpha):
     total_cost = 0  # L in the SVM function
     N = len(X)
+    # Computing score
     for i in range(N):
         xi = X[i]
         score = w[0] * xi[0] + w[1] * xi[1] + w[2]
