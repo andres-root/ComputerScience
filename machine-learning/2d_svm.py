@@ -8,8 +8,8 @@ def cost(X, y, w, alpha):
     for i in range(N):
         xi = X[i]
         score = w[0] * xi[0] + w[1] * xi[1] + w[2]
-
-        yi = y[i]
+        # accumulate cost based on how compatible the score is with the label
+        yi = y[i]  # label
         costi = max(0, -yi * score + 1)
         print('example {0} : xi = ( {1} ) and label = {2}'.format(i, xi, yi))
         print('  score computed to be {0:.3f}'.format(score))
