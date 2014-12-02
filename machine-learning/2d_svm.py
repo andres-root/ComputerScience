@@ -21,6 +21,7 @@ def cost(X, y, w):
     total_cost += reg_cost
 
     print('Total cost is: {0:.3f}'.format(total_cost))
+    return total_cost
 
 
 if __name__ == '__main__':
