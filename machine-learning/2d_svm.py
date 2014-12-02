@@ -27,6 +27,6 @@ def cost(X, y, w, alpha):
 if __name__ == '__main__':
     X = [[1.2, 0.7], [-0.3, 0.5], [3, 2.5]]  # 2-dimensional data
     y = [1, -1, 1]  # Labels
-    w = [0.1, 0.2, 0.3]
+    w = [0.1, 0.2, 0.3]  # Random numbers
     alpha = 0.1
     print(cost(X, y, w, alpha))
