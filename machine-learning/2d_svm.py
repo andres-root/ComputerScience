@@ -15,6 +15,9 @@ def cost(X, y, w):
         print('  => cost computed to be {0:.3f}'.format(costi))
         total_cost += costi
 
+    # Regularizing cost: we want small weights
+    reg_cost = alpha * (w[0] ** 2 + w[1] ** 2)
+
 
 if __name__ == '__main__':
     X = [[1.2, 0.7], [-0.3, 0.5], [3, 2.5]]
