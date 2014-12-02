@@ -18,6 +18,7 @@ def cost(X, y, w):
     # Regularizing cost: we want small weights
     reg_cost = alpha * (w[0] ** 2 + w[1] ** 2)
     print('regularization cost for current model is {0:.3f}'.format(reg_cost))
+    total_cost += reg_cost
 
 
 if __name__ == '__main__':
