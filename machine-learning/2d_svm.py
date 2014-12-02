@@ -20,6 +20,8 @@ def cost(X, y, w):
     print('regularization cost for current model is {0:.3f}'.format(reg_cost))
     total_cost += reg_cost
 
+    print('Total cost is: {0:.3f}'.format(total_cost))
+
 
 if __name__ == '__main__':
     X = [[1.2, 0.7], [-0.3, 0.5], [3, 2.5]]
