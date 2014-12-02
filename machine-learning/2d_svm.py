@@ -2,7 +2,14 @@
 
 
 def cost(X, y, w):
-    pass
+    total_cost = 0
+    N = len(X)
+    for i in range(N):
+        xi = X[i]
+        score = w[0] * xi[0] + w[1] * xi[1] + w[2]
+
+        yi = y[i]
+        costi = max(0, -yi * score + 1)
 
 
 if __name__ == '__main__':
