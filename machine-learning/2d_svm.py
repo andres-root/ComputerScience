@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 
-def cost(X, y, w):
+def cost(X, y, w, alpha):
     total_cost = 0
     N = len(X)
     for i in range(N):
@@ -29,4 +29,4 @@ if __name__ == '__main__':
     y = [1, -1, 1]
     w = [0.1, 0.2, 0.3]
     alpha = 0.1
-    print(cost())
+    print(cost(X, y, w, alpha))
