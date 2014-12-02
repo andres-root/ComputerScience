@@ -11,8 +11,8 @@ def cost(X, y, w):
         yi = y[i]
         costi = max(0, -yi * score + 1)
         print('example {0} : xi = ( {1} ) and label = {2}'.format(i, xi, yi))
-        print('  score computed to be {.3f}'.format(score))
-        print('  => cost computed to be {.3f}'.format(costi))
+        print('  score computed to be {0:.3f}'.format(score))
+        print('  => cost computed to be {0:.3f}'.format(costi))
 
 
 if __name__ == '__main__':
