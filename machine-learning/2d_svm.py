@@ -2,7 +2,7 @@
 
 
 def cost(X, y, w, alpha):
-    total_cost = 0
+    total_cost = 0  # L in the SVM function
     N = len(X)
     for i in range(N):
         xi = X[i]
@@ -28,5 +28,5 @@ if __name__ == '__main__':
     X = [[1.2, 0.7], [-0.3, 0.5], [3, 2.5]]  # 2-dimensional data
     y = [1, -1, 1]  # Labels
     w = [0.1, 0.2, 0.3]  # Random numbers
-    alpha = 0.1
+    alpha = 0.1  # Regularization strenght
     print(cost(X, y, w, alpha))
