@@ -51,61 +51,37 @@ SinglyList.prototype.search = function(index) {
 };
 
 
-	SinglyList.prototype.remove = function(index) {
-		var current = this.head,
-        length = this._length,
-        count = 0,
-        before = null,
-        toDelete = null,
-        deleted = null;
+SinglyList.prototype.remove = function(index) {
+	var current = this.head,
+      length = this._length,
+      count = 0,
+      before = null,
+      toDelete = null,
+      deleted = null;
 
-    if (index < 0 || index > length) {
-	  	throw new Error('Error!');
-    }
+  if (index < 0 || index > length) {
+  	throw new Error('Error!');
+  }
 
-    if (index === 1) {
-    	this.head = current.next;
-    	deleted = current;
-    	current = null;
-    	this._length--;
+  if (index === 1) {
+  	this.head = current.next;
+  	deleted = current;
+  	current = null;
+  	this._length--;
 
-    	return deleted;
-    }
+  	return deleted;
+  }
 
-    while (count > index) {
-    	before = current;
-    	toDelete = current.next;
-    	count++;
-    }
+  while (count > index) {
+  	before = current;
+  	toDelete = current.next;
+  	count++;
+  }
 
-    before.next = toDelete.next;
-    deleted = toDelete;
-    toDelete = null;
-    this._length--;
+  before.next = toDelete.next;
+  deleted = toDelete;
+  toDelete = null;
+  this._length--;
 
-    return deleted;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  return deleted;
+};
