@@ -74,7 +74,7 @@ DoublyList.prototype.remove = function(index) {
     this.tail = this.tail.prev;
     this.tail.next = null;
   } else {
-    while (count < position) {
+    while (count < index) {
       current = current.next;
       count++;
     }
