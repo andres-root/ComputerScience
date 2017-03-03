@@ -48,48 +48,27 @@ DoublyList.prototype.search = function(index) {
   return current;
 };
 
-
 DoublyList.prototype.remove = function(index) {
-	var current = this.head,
-      length = this._length,
-      count = 0,
-      before = null,
-      after = null,
-      toDelete = null,
-      deleted = null;
+  var toDelete = this.search(index);
 
-  if (length === 0 || index < 1 || index > length) {
-  	throw new Error('Error!');
+  if (this._length === 0 || index < 1 || index > this._length) {
+    throw new Error('Error!');
   }
 
-  if (index === 1) {
-  	this.head = current.next;
-  	
-    if (this.head) {
-      this.head.prev = null;
-    } else {
-      this.tail = null;
-    }
-  } else if (index === this._length) {
-    this.tail = this.tail.prev;
-    this.tail.next = null;
+  if (toDelete.next) {
+    toDelete.next.prev = toDelete.prev;
   } else {
-    while (count < index) {
-      current = current.next;
-      count++;
-    }
-     
-    before = current.previous;
-    toDelete = current;
-    after = current.next;
+    this.tail = toDelete.prev;
+  }
 
-    before.next = after;
-    after.previous = before;
-    deleted = toDelete;
-    toDelete = null;
+  if (toDelete.prev) {
+    toDelete.prev.next = toDelete.next;
+  } else {
+    this.head = toDelete.next;
   }
 
   this._length--;
+
   return this;
 };
   
