@@ -54,6 +54,11 @@ DoublyList.prototype.remove = function(index) {
     throw new Error('Index out of range');
   }
 
+  if (this._length === 1 && index === 1) {
+    this.head = null;
+    this.tail = null;
+  }
+
   if (toDelete.next) {
     toDelete.next.prev = toDelete.prev;
   } else {
