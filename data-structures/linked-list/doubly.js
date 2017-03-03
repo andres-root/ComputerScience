@@ -52,7 +52,7 @@ DoublyList.prototype.remove = function(index) {
   var toDelete = this.search(index);
 
   if (this._length === 0 || index < 1 || index > this._length) {
-    throw new Error('Error!');
+    throw new Error('Index out of range');
   }
 
   if (toDelete.next) {
