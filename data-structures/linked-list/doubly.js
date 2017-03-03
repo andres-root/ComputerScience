@@ -33,11 +33,10 @@ DoublyList.prototype.add = function(value) {
 
 DoublyList.prototype.search = function(index) {
 	var current = this.head,
-      length = this._length,
       count = 1;
 
-  if (length === 0 || index < 1 || index > length) {
-  	throw new Error('Error!');
+  if (this._length === 0 || index < 1 || index > this._length) {
+  	throw new Error('Index out of range');
   }
 
   while (count < index) {
